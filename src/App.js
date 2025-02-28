@@ -4,7 +4,7 @@ function App() {
 
   const [backendData, setBackendData] = useState([{}]);
   // const apiHost = "localhost:5001"; //указать тут адрес деплоя
-  const apiHost = 'https://node-react-test-server.onrender.com';
+  const apiHost = 'https://node-react-test-server-2.onrender.com';
 
   useEffect(() => {
     // fetch("/data").then(
