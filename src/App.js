@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import { React, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Home from "./home"; // Ensure you have Home.js
+import Login from "./login";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const apiHost = "http://localhost:5001";
+  const moveto = useNavigate();
 
-  const [backendData, setBackendData] = useState([{}]);
-  // const apiHost = "localhost:5001"; //указать тут адрес деплоя
-  const apiHost = 'https://node-react-test-server-2.onrender.com';
-
-  useEffect(() => {
-    // fetch("/data").then(
-    fetch(`${apiHost}/data`).then(
-      response => response.json()
-    ).then(
-      data => setBackendData(data)
-    )
-  }, []);
-
-  console.log(backendData);
+  // check if logged in
 
   return (
-    <div>
-      App
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} /> {/* Show Login on "/" */}
+      <Route path="/home" element={<Home />} /> {/* Show Home on "/home" */}
+    </Routes>
   );
 }
 
