@@ -14,15 +14,6 @@ function Login() {
   const moveto = useNavigate();
 
   // check if already logged in
-  const authStatus = () => {
-    axios.get(`${apiHost}/check-session`, { withCredentials: true })
-      .then(result => {
-        if (result.data.loggedIn === true){
-          moveto('/home');
-        }
-      })
-      .catch(err => console.log(err));
-  }
 
   const handleLogin = (event) => {
     axios.defaults.withCredentials = true;
@@ -41,7 +32,6 @@ function Login() {
 
   // console.log(backendData);
 
-  authStatus();
   return (
     <div>
       <form onSubmit={handleLogin}>
